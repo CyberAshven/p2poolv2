@@ -163,6 +163,11 @@ Stratum V2 on BCH:
   https://github.com/BitcoinCash1/knuth-bch-startos ; site: https://kth.cash .
 - SoloFury: https://solofury.com/blog/stratum-v2-bitcoin-cash-solo-mining/ ,
   https://solofury.com/blog/stratum-v2-solo-mining-guide/ .
+- CashStratum (GPL-3.0), skaisser's BCH ckpool fork under a new name, with its
+  own C Stratum V2 code including Job Declaration (`src/sv2_*.c`); SoloFury's
+  BCH pool builds on it: https://github.com/cashstratum/cashstratum . Its SV2
+  certificate uses format version 1, which the spec forbids (checked
+  2026-10-08): https://github.com/cashstratum/cashstratum/issues/3 .
 - ViaBTC BCH (SV1 endpoints):
   https://support.viabtc.com/hc/en-us/articles/7207458561679-BCH-Mining .
 - Bitaxe ESP-Miner: https://github.com/bitaxeorg/ESP-Miner .
