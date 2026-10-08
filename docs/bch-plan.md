@@ -122,20 +122,89 @@ check before code.
 3. Build a BCHN regtest and chipnet harness.
 4. Implement in small pull requests, each verified on regtest and chipnet.
 
-## Sources
+## Sources and how they were checked
 
-- P2Poolv2: https://github.com/p2poolv2/p2poolv2 ; docs, including the
-  comparison with Stratum V2 and DATUM: https://github.com/p2poolv2/docs
-- sv2-p2pool: https://github.com/average-gary/sv2-p2pool ; its design notes:
-  https://github.com/average-gary/wiki/tree/main/topics/sv2-p2pool-integration
-- Stratum V2 specification: https://stratumprotocol.org/specification/03-protocol-overview/ ;
-  Job Declaration: https://stratumprotocol.org/specification/06-job-declaration-protocol/
-- Coinbase payouts extension (open): https://github.com/stratum-mining/sv2-spec/pull/203
-- ckpool (Stratum V2 pool, solo, proxy and Job Declaration server): https://github.com/ckolivas/ckpool
+Checked on 2026-10-05 and 2026-10-08 by web search, by reading the pages and
+specifications below, and through the GitHub API (repository, code, pull
+request, issue and branch searches). Re-check anything marked open or pending
+before relying on it.
+
+Stratum V2:
+
+- Specification: [protocol overview](https://stratumprotocol.org/specification/03-protocol-overview/),
+  [Mining Protocol](https://stratumprotocol.org/specification/05-mining-protocol/),
+  [Job Declaration](https://stratumprotocol.org/specification/06-job-declaration-protocol/).
+- Reference implementation: https://github.com/stratum-mining/stratum ,
+  applications https://github.com/stratum-mining/sv2-apps , Umbrel UI
+  https://github.com/stratum-mining/sv2-ui .
+- Coinbase payouts extension (open, updated 2026-09-15):
+  https://github.com/stratum-mining/sv2-spec/pull/203 ; closed alternatives
+  https://github.com/stratum-mining/sv2-spec/pull/202 and
+  https://github.com/stratum-mining/sv2-spec/pull/195 .
+- Start9 packages: https://github.com/Start9Labs/stratum-v2-startos ,
+  https://github.com/Start9Labs/stratum-v2-pool-startos .
+- ckpool (pool, solo, proxy and Job Declaration server):
+  https://github.com/ckolivas/ckpool .
+- Adoption: large pools joining the Stratum V2 working group (May 2026)
+  https://news.bitcoin.com/bitcoin-mining-pool-giants-foundry-antpool-and-f2pool-signal-stratum-v2-shift/ ;
+  DEMAND's first Stratum V2 block
+  https://cryptobriefing.com/demand-pool-first-stratum-v2-block/ ; pools in
+  production https://www.spark.money/research/bitcoin-stratum-v2-mining-decentralization ;
+  support matrix https://d-central.tech/data/stratum-protocol-matrix/ .
+
+Stratum V2 on BCH:
+
+- bchn-sv2-bridge: https://github.com/danhaus93-ops/bchn-sv2-bridge ;
+  LoneStrike BCH apps: https://github.com/danhaus93-ops/umbrel-bch-apps ;
+  LoneStrike ckpool image: https://github.com/danhaus93-ops/lonestrike-ckpool .
+- Knuth: https://github.com/k-nuth/kth (Stratum V2 from
+  https://github.com/k-nuth/kth/pull/534 ; JSON-RPC:
+  https://github.com/k-nuth/kth/blob/master/docs/json-rpc.md); package:
+  https://github.com/BitcoinCash1/knuth-bch-startos ; site: https://kth.cash .
+- SoloFury: https://solofury.com/blog/stratum-v2-bitcoin-cash-solo-mining/ ,
+  https://solofury.com/blog/stratum-v2-solo-mining-guide/ .
+- ViaBTC BCH (SV1 endpoints):
+  https://support.viabtc.com/hc/en-us/articles/7207458561679-BCH-Mining .
+- Bitaxe ESP-Miner: https://github.com/bitaxeorg/ESP-Miner .
+
+P2Pool and decentralized pools:
+
+- P2Poolv2: https://github.com/p2poolv2/p2poolv2 ; docs
+  https://github.com/p2poolv2/docs (`compare_datum_sv2.adoc`, `stratum.adoc`).
+- sv2-p2pool: https://github.com/average-gary/sv2-p2pool ; design notes
+  https://github.com/average-gary/wiki/tree/main/topics/sv2-p2pool-integration .
+- Braidpool: https://github.com/braidpool/braidpool .
+- P2Pool v1: https://github.com/jtoomim/p2pool ; for BCH
+  https://github.com/BitcoinCash1/p2poolBCH (from
+  https://github.com/frstrtr/p2poolBCH).
 - Monero P2Pool: https://github.com/SChernykh/p2pool ; Gupaxx:
-  https://github.com/Cyrix126/gupaxx
-- P2Pool v1: https://github.com/jtoomim/p2pool ,
-  https://github.com/BitcoinCash1/p2poolBCH
-- OCEAN DATUM: https://ocean.xyz/docs/datum
-- Pickaxe: https://github.com/CyberAshven/pickaxe-miner (Stratum V2 server,
-  SV1 adapter and BCH templates in `src/stratum_v2/`)
+  https://github.com/Cyrix126/gupaxx .
+- https://p2pool.org/ ; Bitcoin Optech on pooled mining:
+  https://bitcoinops.org/en/topics/pooled-mining/ .
+- OCEAN DATUM: https://ocean.xyz/docs/datum ; explainers
+  https://www.simplemining.io/insights/post/what-is-datum-bitcoin ,
+  https://thebitcoinmanual.com/articles/datum/ .
+- Pickaxe: https://github.com/CyberAshven/pickaxe-miner ; its architecture page with
+  the decided mining destinations: https://github.com/CyberAshven/pickaxe-miner/pull/39 .
+
+BCH pools, nodes and tokens:
+
+- ASICseer pool: https://github.com/ASICseer/asicseer-pool ; BCHN
+  `getblocktemplatelight`: https://gist.github.com/cculianu/89805c9cf525f314f46ea75e5b103d29 .
+- BitcoinCash1: https://github.com/orgs/BitcoinCash1/repositories .
+- SAFA: https://bitcoincashresearch.org/t/safas-a-sha256-asic-minable-automated-token-market/2123 ;
+  BTOP: https://bitcoincashresearch.org/t/block-tops-btop-a-minable-cashtoken/1703 .
+
+Searches used on 2026-10-08, to repeat or extend:
+
+- Web: "P2Pool Stratum V2 decentralized pool 2026"; "Stratum V2 Job
+  Declaration pool coinbase outputs miner template specification";
+  "sv2-spec SetPayoutDistribution coinbase payouts extension pull request
+  203"; "Bitcoin Cash BCH mining pool Stratum V2 support SoloFury ViaBTC
+  2026"; "DEMAND pool Stratum V2 job declaration production Braiins pool SV2
+  endpoint 2026"; "OCEAN DATUM protocol miner block templates coinbase
+  payouts TIDES non-custodial".
+- GitHub: code search `p2pool` + `sv2` (found sv2-p2pool); repository
+  searches for `p2pool sv2`, `p2pool stratum v2` and `p2pool`; the p2poolv2
+  organization's repositories, branches, commits, pull requests and issues
+  for `sv2` and `stratum v2`; the sv2-spec pull requests for `payout`.
